@@ -166,10 +166,9 @@ a {
   );
   transition-duration: 600ms;
   transition-timing-function: ease;
-  transition-delay: 1s;
 }
 .layer:hover {
-  display: none;
+  opacity: 0;
 }
 .about__imageFrame {
   position: absolute;
