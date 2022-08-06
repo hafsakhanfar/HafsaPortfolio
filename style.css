@@ -490,7 +490,7 @@ a {
   }
 
   .work__header {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   .work__project {
@@ -529,7 +529,7 @@ a {
     left: 0%;
   }
 
-  .work__imgOne:is(:hover, :focus) {
+  .work__imgOne:is(:hover) {
     width: 100vw;
     height: auto;
   }
