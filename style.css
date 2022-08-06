@@ -42,6 +42,27 @@ body {
   list-style: none;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 0.5rem;
+  transition: 300ms;
+  transition-timing-function: ease;
+}
+
+.header__link:not(:nth-child(5), :nth-child(1))::after {
+  transition: 0.5s;
+  content: "";
+  width: 0%;
+  border-top: solid 0.2rem;
+  border-radius: 0.5rem;
+  display: block;
+  transition: 300ms;
+  margin: auto;
+  opacity: 0;
+  transition-timing-function: ease;
+}
+
+.header__link:hover::after {
+  width: 100%;
+  opacity: 1;
+  color: rgb(152, 184, 216);
 }
 
 a {
@@ -60,40 +81,63 @@ a {
 .header__logo img {
   width: 2.5rem;
   height: 2.5rem;
+  transition: 300ms;
+  transition-timing-function: ease;
 }
 
+.header__logo img:hover {
+  transition: 300ms;
+  transform: scale(1.3);
+}
 .header__resume {
   border: solid 0.1rem;
   border-radius: 0.2rem;
 
-  color: rgb(151, 173, 241);
+  color: rgb(152, 184, 216);
+  transition: 300ms;
+  transition-timing-function: ease-in-out;
 }
 
+.header__resume:hover {
+  transition: 300ms;
+  transform: scale(1.2);
+  background-color: rgb(152, 184, 216);
+}
 .header__text {
-  position: absolute;
-  top: 43%;
-  left: 30%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 .header__title {
   font-size: 6rem;
+  margin-top: 16rem;
 }
 .header__discreption {
-  margin-left: 11rem;
-  margin-top: 1.5rem;
   font-weight: 100;
 }
 
 .header__botton {
-  position: absolute;
-  margin-left: 8.8rem;
+  margin-left: 4rem;
   margin-top: 4rem;
   border: solid 0.1rem;
-  border-radius: 0.2rem;
+  border-radius: 0.5rem;
   width: 17rem;
   padding: 1.5rem;
   text-align: center;
   background-color: rgb(5, 12, 41);
   font-size: 1.5rem;
+  transition: 300ms;
+  transition-timing-function: ease;
+}
+.header__botton:hover {
+  transition: 300ms;
+  transform: scale(1.05);
+  color: rgb(224, 229, 149);
+  border: solid 0.15rem;
+  filter: drop-shadow(0px 0px 5px rgb(224, 229, 149));
 }
 
 .contactLinks__aside {
@@ -105,11 +149,18 @@ a {
   justify-content: flex-end;
   background-color: rgb(5, 12, 41);
   flex-direction: column;
-  top: 7%;
+  top: 0%;
   left: 0%;
-  float: top left;
   position: fixed;
   z-index: 1;
+  transition: 300ms;
+  transition-timing-function: ease;
+}
+
+.contactLinks__icon :hover {
+  color: rgb(152, 184, 216);
+  transform: scale(1.3);
+  transition: 300ms;
 }
 
 .contactLinks__aside::after {
@@ -166,9 +217,11 @@ a {
   );
   transition-duration: 600ms;
   transition-timing-function: ease;
+  transition: 300ms;
 }
 .layer:hover {
   opacity: 0;
+  transition: 300ms;
 }
 .about__imageFrame {
   position: absolute;
@@ -198,12 +251,13 @@ a {
   padding: 0.5rem;
   margin-top: 1rem;
   margin-right: 1rem;
-  transition-duration: 600ms;
+  transition: 300ms;
   transition-timing-function: ease;
 }
 
 .about__icon:hover {
   transform: scale(1.2);
+  transition: 300ms;
 }
 .work__div {
   padding: 7rem;
@@ -224,7 +278,7 @@ a {
 .work__title {
   font-size: 2rem;
   position: absolute;
-
+  text-transform: uppercase;
   top: 15%;
   left: 60%;
   font-weight: bold;
@@ -263,11 +317,17 @@ a {
   font-size: 2rem;
   left: 60%;
   bottom: 13%;
+  transition: 300ms;
+  transition-timing-function: ease;
 }
+.work__github:hover {
+  transform: translateY(10px) scale(1.1);
+}
+
 .star {
   position: absolute;
-  width: 1.7rem;
-  height: 1.7rem;
+  width: 1.8rem;
+  height: 1.8rem;
   left: 28%;
   top: 23%;
   animation: star;
@@ -331,7 +391,37 @@ a {
   margin-top: 2rem;
   filter: brightness(80%);
 }
-
+@keyframes wiggle {
+  0% {
+    transform: rotate(10deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.contact__icon:hover {
+  animation-iteration-count: infinite;
+  transition-timing-function: ease-in-out;
+  animation: wiggle;
+  animation-duration: 1s;
+}
+.contact__links {
+  margin-bottom: 2rem;
+  display: flex;
+  width: 100vw;
+  height: 1rem;
+  gap: 2rem;
+  justify-content: center;
+}
 .footer {
   position: absolute;
   left: 43%;
@@ -339,4 +429,132 @@ a {
   font-weight: 100;
   opacity: 70%;
   padding-bottom: 2rem;
+}
+
+@media screen and (max-width: 400px) {
+  .header__title {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  .header__logo {
+    margin-left: 0%;
+  }
+
+  .contactLinks__aside {
+    display: none;
+  }
+
+  .header__botton {
+    width: 40%;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .star {
+    display: none;
+  }
+
+  .about__div {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin: 0%;
+    padding: 10%;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .about__discreption {
+    width: 80%;
+  }
+
+  .about__img {
+    position: relative;
+    margin-top: 7%;
+    margin-left: 25%;
+  }
+
+  .layer {
+    display: none;
+  }
+  .about__imageFrame {
+    display: none;
+  }
+  .work__div {
+    width: 100%;
+    margin: 0%;
+    padding: 10%;
+    height: auto;
+  }
+
+  .work__header {
+    font-size: 3rem;
+  }
+
+  .work__project {
+    position: relative;
+    display: flex;
+    width: 80%;
+    height: auto;
+    flex-wrap: wrap;
+    margin: 6%;
+    padding: 0%;
+    justify-content: center;
+    gap: 2%;
+    margin-left: 2%;
+  }
+  .work__title {
+    margin: 1%;
+    position: relative;
+    font-size: 1.6rem;
+    left: 0%;
+    margin-top: 6%;
+    width: 80%;
+    text-align: center;
+  }
+
+  .work___discreption {
+    display: block;
+    position: relative;
+    width: 80%;
+    margin: 10%;
+    left: 0%;
+    font-size: 1.3rem;
+  }
+
+  .work__imgOne {
+    position: relative;
+    left: 0%;
+  }
+
+  .work__imgOne:is(:hover, :focus) {
+    width: 100vw;
+    height: auto;
+  }
+  .work__imgTwo {
+    display: none;
+  }
+
+  .work__github {
+    z-index: 2;
+    color: rgb(5, 12, 41);
+    position: absolute;
+    top: 2%;
+    left: 6%;
+  }
+  .work__github:hover {
+    transition: none;
+  }
+  .contact__div {
+    width: 100%;
+    margin-left: 0%;
+    padding: 0%;
+    margin-bottom: 5%;
+  }
+  .footer {
+    position: relative;
+    left: 15%;
+  }
 }
