@@ -431,7 +431,7 @@ a {
   padding-bottom: 2rem;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
   .header__title {
     font-size: 3rem;
     font-weight: 700;
