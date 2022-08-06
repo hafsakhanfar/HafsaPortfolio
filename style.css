@@ -309,8 +309,13 @@ a {
   border-top-left-radius: 1rem;
   left: 15%;
   bottom: 0%;
-
+  transition: 300ms;
   box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 90%);
+}
+
+.work__project:hover {
+  transition: 300ms;
+  transform: scale(1.1);
 }
 .work__github {
   position: absolute;
@@ -529,7 +534,7 @@ a {
     left: 0%;
   }
 
-  .work__imgOne:is(:hover) {
+  .work__imgOne:hover {
     width: 100vw;
     height: auto;
   }
